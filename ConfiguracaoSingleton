@@ -1,0 +1,48 @@
+public class ConfiguracaoSingleton {
+    private static ConfiguracaoSingleton instanciaUnica;
+    private String caminhoArquivo;
+    private String idioma;
+    private boolean modoEscuro;
+
+    // Construtor privado para evitar instâncias externas
+    private ConfiguracaoSingleton() {
+        // Simulação de carregamento de configurações
+        this.caminhoArquivo = "configuracao.properties";
+        this.idioma = "pt-BR";
+        this.modoEscuro = false;
+        System.out.println("Configurações carregadas.");
+    }
+
+    // Método estático para obter a instância única
+    public static synchronized ConfiguracaoSingleton getInstancia() {
+        if (instanciaUnica == null) {
+            instanciaUnica = new ConfiguracaoSingleton();
+        }
+        return instanciaUnica;
+    }
+
+    // Métodos de acesso às configurações
+    public String getCaminhoArquivo() {
+        return caminhoArquivo;
+    }
+
+    public void setCaminhoArquivo(String caminhoArquivo) {
+        this.caminhoArquivo = caminhoArquivo;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public boolean isModoEscuro() {
+        return modoEscuro;
+    }
+
+    public void setModoEscuro(boolean modoEscuro) {
+        this.modoEscuro = modoEscuro;
+    }
+}
