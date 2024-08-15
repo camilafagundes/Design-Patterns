@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+        // Obtendo a instância única da ConfiguracaoSingleton
+        ConfiguracaoSingleton config = ConfiguracaoSingleton.getInstancia();
+
+        // Exibindo configurações iniciais
+        System.out.println("Caminho do arquivo: " + config.getCaminhoArquivo());
+        System.out.println("Idioma: " + config.getIdioma());
+        System.out.println("Modo Escuro: " + config.isModoEscuro());
+
+        // Alterando algumas configurações
+        config.setCaminhoArquivo("novo_configuracao.properties");
+        config.setIdioma("en-US");
+        config.setModoEscuro(true);
+
+        // Obtendo novamente a instância para verificar se as mudanças foram aplicadas
+        ConfiguracaoSingleton config2 = ConfiguracaoSingleton.getInstancia();
+
+        // Exibindo configurações alteradas
+        System.out.println("Caminho do arquivo: " + config2.getCaminhoArquivo());
+        System.out.println("Idioma: " + config2.getIdioma());
+        System.out.println("Modo Escuro: " + config2.isModoEscuro());
+    }
+}
